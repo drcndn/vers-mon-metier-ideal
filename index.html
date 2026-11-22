@@ -217,15 +217,80 @@ footer{max-width:960px;margin:0 auto;padding:0 max(4vw,16px) 32px;color:var(--so
  #print-area td:first-child{white-space:nowrap;font-weight:700}
  #print-area tr{break-inside:avoid}
  #print-area small{color:#555}
+ #print-area a{color:#14233a;text-decoration:underline;text-decoration-color:#68c8f1;text-underline-offset:2px}
+ #print-area a.purl{color:#1a4f9c;text-decoration:underline;font-size:8.5pt;word-break:break-all}
+ #print-area .pnote{font-size:9pt;color:#444;margin:0 0 6pt}
  #print-area .plink{font-size:8pt;word-break:break-all;margin-top:10pt}
  #print-area .pfoot{font-size:9pt;color:#444}
+}
+
+/* ===== Téléphone ===== */
+@media(max-width:600px){
+ .top{padding-top:12px}
+ .top::before{width:110px;height:110px;right:-40px;top:-50px}
+ .owner{display:block;font-size:13px;margin-bottom:4px}
+ .owner::before{display:inline-block;vertical-align:-1px;margin-right:6px;width:10px;height:10px}
+ h1{font-size:24px;margin-bottom:4px}
+ .top.v-jeunes .lead,.top.v-adultes .lead{display:none}
+ .lead{font-size:15px;margin-bottom:12px}
+ .vbadge{display:flex;width:100%;gap:10px;padding:6px 8px 6px 6px;margin:4px 0 10px}
+ .vbadge>span{flex:1;min-width:0}
+ .vbadge svg{width:38px;height:38px;border-radius:10px;padding:3px}
+ .vbadge b{font-size:15px}
+ .vbadge small{font-size:12px}
+ .vbadge .switch{flex:none;margin-left:0;padding:6px 10px}
+ .hbtn{position:static;margin:0 0 8px;padding:6px 14px;min-height:40px;font-size:15px}
+ .steps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding-bottom:12px}
+ .steps:has(.st:nth-child(5)){grid-template-columns:repeat(3,minmax(0,1fr))}
+ .st{min-width:0;padding:6px 6px;min-height:48px;gap:5px;border-radius:12px}
+ .st b{width:22px;height:22px;font-size:13px}
+ .st span{font-size:12px;letter-spacing:-.01em;word-break:keep-all;overflow-wrap:normal;hyphens:none}
+ .top::after{display:none}
+ main{padding:14px 12px 28px}
+ .q{padding:16px 14px;border-radius:16px}
+ .q h2,.reshead h2,.welcome h2{font-size:22px}
+ .nav{padding:8px 0;gap:6px}
+ .nav .live{font-size:14px;text-align:center}
+ .tiles{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+ .tiles.big{grid-template-columns:minmax(0,1fr)}
+ .tile{padding:10px 12px;min-height:70px;font-size:15px}
+ .sec .body{padding:10px 12px 12px}
+ .sec h3{padding:10px 12px;font-size:16px}
+ .row{flex-wrap:wrap}
+ .yn{width:100%}
+ .yn button{flex:1}
+ .chip{padding:8px 12px;font-size:15px}
+ .reshead{flex-direction:column;align-items:stretch}
+ .reshead .btns{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+ .reshead #keep{grid-column:1/-1}
+ .reshead .btn{padding:8px 10px;font-size:15px}
+ .mode{padding:10px}
+ .mode .seg{flex:1 1 calc(50% - 8px)}
+ .card{padding:14px 14px 14px 12px}
+ .card h3{font-size:17px}
+ .acts a,.acts .btn{flex:1 1 auto;justify-content:center;text-align:center}
+ .pct{flex-wrap:wrap}
+ .up{bottom:128px;right:12px;padding:10px 14px;min-height:44px;font-size:15px}
+ .help{padding:0}
+ .hbox{border-radius:0;min-height:100%;padding:16px 14px 24px}
+ .hhead h2{font-size:24px}
+ .hsteps li{padding:12px 12px 12px 52px}
+ .kqr{min-width:0;padding:8px}
+ .choose{gap:12px}
+ .vcard .vt{font-size:22px}
+}
+/* ===== Tablette ===== */
+@media(min-width:601px) and (max-width:1024px){
+ .st{min-width:0}
+ .tiles{grid-template-columns:repeat(auto-fill,minmax(min(100%,170px),1fr))}
+ .reshead .btns{flex-wrap:wrap}
 }
 </style>
 </head>
 <body>
 <header class="top"><div class="in">
 <button class="hbtn" id="help-open" aria-haspopup="dialog">? Aide</button>
-<p class="owner">Un outil de la <strong>Cité des Métiers de Charleroi</strong><span id="sw"></span></p>
+<p class="owner"><span>Un outil de la <strong>Cité des Métiers de Charleroi</strong></span><span id="sw"></span></p>
 <div id="vb"></div>
 <h1>Vers mon métier idéal</h1>
 <p class="lead" id="lead">Découvre des métiers qui te ressemblent.</p>
@@ -241,15 +306,15 @@ footer{max-width:960px;margin:0 auto;padding:0 max(4vw,16px) 32px;color:var(--so
 <p class="hint">Cet outil t’aide à trouver des métiers qui te ressemblent. Il n’y a pas de bonne ou de mauvaise réponse, et tu peux changer d’avis à tout moment.</p>
 <ol class="hsteps">
 <li><b>Choisis ton parcours.</b> « Je découvre les métiers » (orange) : 3 questions simples, si tu ne sais pas encore quoi faire. « J’affine mon projet » (bleu) : 5 étapes plus détaillées, si tu as déjà une idée. Le bouton « Changer » en haut te ramène au choix du parcours.</li>
-<li><b>Réponds aux étapes.</b> Clique sur tout ce qui te plaît, autant que tu veux. Pas d’avis ? Clique sur « Passer ». La barre d’étapes en haut te permet d’aller où tu veux, et le compteur en bas te dit combien de métiers correspondent.</li>
+<li><b>Réponds aux étapes.</b> Clique sur tout ce qui te plaît, autant que tu veux. Pas d’avis ? Clique sur « Passer ». La barre d’étapes en haut te permet d’aller où tu veux, et le compteur en bas te dit combien de métiers correspondent. Dans les longues listes, la ligne « Aller à » t’emmène directement à une rubrique et le bouton orange « ↑ Haut » te ramène en haut de la page.</li>
 <li><b>« Ça me plaît » ou « Éviter ».</b> Dans les questions sur la façon de travailler, « Éviter » retire les métiers concernés (par exemple le travail de nuit). Clique une deuxième fois sur une réponse pour l’enlever.</li>
 <li><b>Tu ne trouves pas un mot ?</b> Dans « J’affine mon projet », tape un verbe ou un mot dans la barre de recherche (soigner, voiture, enfants…). Tu peux aussi chercher ce mot dans toutes les activités des métiers.</li>
 <li><b>Regarde tes métiers.</b> Chaque métier a un pourcentage de correspondance : <span class="hdot" style="--pc:#5fc59e"></span> vert de 75 à 100 %, <span class="hdot" style="--pc:#68c8f1"></span> bleu de 50 à 74 %, <span class="hdot" style="--pc:#d5e1ec"></span> gris en dessous. Les plus proches de tes choix sont en haut.</li>
 <li><b>Trop ou pas assez de métiers ?</b> Utilise « Combien de tes choix en commun ? » : plus tu en demandes, plus la liste est courte. « Filtrer encore » permet de garder un domaine ou seulement les métiers qui recrutent.</li>
 <li><b>Découvre un métier.</b> « Voir le détail » montre ce qu’on y fait et comment on travaille. « Fiche du métier » ouvre la fiche complète du Forem.</li>
-<li><b>Garde tes résultats.</b> Le bouton orange « Garder mes résultats » te donne un QR code à scanner avec ton téléphone, un lien à copier et une feuille à imprimer ou à enregistrer en PDF. Avec le lien, tu retrouves exactement ta recherche.</li>
+<li><b>Garde tes résultats.</b> Le bouton orange « Garder mes résultats » te donne un QR code à scanner avec ton téléphone, un lien à copier et une feuille à imprimer ou à enregistrer en PDF, avec le lien vers la fiche Infos Métiers de chaque métier. Avec le lien, tu retrouves exactement ta recherche.</li>
 </ol>
-<p class="hnote">Rien n’est enregistré sur l’ordinateur : quand tu fermes la page ou que tu cliques sur « Recommencer », tes choix sont effacés. Pense à garder tes résultats avant de partir. Besoin d’aide ? Demande à un conseiller de la Cité des Métiers.</p>
+<p class="hnote">L’outil marche sur ordinateur, sur tablette et sur téléphone. Rien n’est enregistré sur l’ordinateur : quand tu fermes la page ou que tu cliques sur « Recommencer », tes choix sont effacés. Pense à garder tes résultats avant de partir. Besoin d’aide ? Demande à un conseiller de la Cité des Métiers.</p>
 </div>
 
 <div class="hpane" data-hp="c" hidden>
@@ -268,7 +333,14 @@ footer{max-width:960px;margin:0 auto;padding:0 max(4vw,16px) 32px;color:var(--so
 <li><b>Parcours « Je découvre »</b> : chaque mot simple est relié aux données du Forem. Les envies correspondent à des familles de métiers officielles (par exemple « M’occuper des animaux » = famille A15 Soins aux animaux, plus l’élevage), les questions aux conditions d’exercice des fiches, et les phrases « Je suis… » aux softskills.</li>
 </ul>
 <h3>Comment le pourcentage est calculé</h3>
-<p>Nombre de choix positifs que le métier remplit, divisé par le nombre total de choix positifs. Les réponses « Éviter » ne comptent pas dans le pourcentage : elles retirent les métiers concernés. Au départ, l’outil affiche automatiquement le réglage le plus précis qui donne au moins 12 métiers ; le visiteur peut l’élargir ou le resserrer.</p>
+<p>Nombre de choix positifs que le métier remplit, divisé par le nombre total de choix positifs. Les réponses « Éviter » ne comptent pas dans le pourcentage : elles retirent les métiers concernés. Couleurs : vert de 75 à 100 %, bleu de 50 à 74 %, gris en dessous. Les métiers sont classés du plus haut au plus bas pourcentage.</p>
+<h3>Régler la liste des résultats</h3>
+<ul>
+<li><b>« Combien de tes choix en commun ? »</b> : de « Au moins 1 » à « Tous », avec le nombre de métiers pour chaque niveau. Au départ, l’outil choisit automatiquement le niveau le plus précis qui donne encore au moins 12 métiers.</li>
+<li><b>« Filtrer encore »</b> : garder un ou plusieurs domaines, ou seulement les métiers en pénurie (qui recrutent).</li>
+</ul>
+<h3>Sur quels appareils</h3>
+<p>L’outil fonctionne sur ordinateur, tablette et téléphone, sans installation ni compte. Adresse en ligne : <code>drcndn.github.io/vers-mon-metier-ideal</code>. Le QR code et les liens de « Garder mes résultats » renvoient toujours vers cette adresse ; l’impression et le QR code fonctionnent depuis la page en ligne.</p>
 <h3>Limites à connaître</h3>
 <ul>
 <li>Une condition non indiquée sur une fiche peut quand même exister dans le métier : toujours vérifier la fiche complète avec la personne.</li>
@@ -3044,12 +3116,12 @@ function start(v){
  document.getElementById('keep-copy').addEventListener('click',async()=>{let ok=false;try{await navigator.clipboard.writeText(lk.value);ok=true}catch(x){try{lk.select();ok=document.execCommand('copy')}catch(y){}}msg.textContent=ok?'Lien copié. Colle-le dans un mail ou un message avec Ctrl + V.':'Sélectionne le lien et copie-le avec Ctrl + C.'});
  document.getElementById('keep-print').addEventListener('click',async()=>{
   const S=window.__state,F=S.final(),L=link(),P=document.getElementById('print-area'),d=new Date();
-  const top=F.list.slice(0,40);
+  const top=F.list;const FURL=u=>'https://www.leforem.be/infos-metiers/metiers/'+u+'.html';
   P.innerHTML=`<h1>Vers mon métier idéal</h1><p class="pmeta">Cité des Métiers de Charleroi · ${S.v=='decouvrir'?'Je découvre les métiers':'J’affine mon projet'} · ${d.toLocaleDateString('fr-BE')}</p>
   <div class="pcols"><div><h2>Mes choix</h2>${S.labels().length?'<ul>'+S.labels().map(x=>`<li>${e0(x)}</li>`).join('')+'</ul>':'<p>Aucun choix.</p>'}${F.pos>=2?`<p>Réglage : au moins ${F.k} de mes ${F.pos} choix en commun.</p>`:''}</div>
   <div class="pqr"><div id="pqr"></div><p>Scanne ce code ou ouvre le lien pour retrouver cette recherche.</p></div></div>
-  <h2>Mes métiers (${F.list.length}${F.list.length>top.length?', les '+top.length+' premiers':''})</h2>
-  <table><thead><tr><th>%</th><th>Métier</th><th>Domaine</th></tr></thead><tbody>${top.map(([s,m])=>`<tr><td>${F.pos?Math.round(s/F.pos*100)+' %':''}</td><td><b>${e0(m.l)}</b>${m.p?' · en pénurie':''}<br><small>${m.u?'leforem.be/infos-metiers/metiers/'+e0(m.u)+'.html':''}</small></td><td>${e0(DATA.D[m.dm])}</td></tr>`).join('')}</tbody></table>
+  <h2>Mes métiers (${F.list.length})</h2><p class="pnote">Dans le PDF, clique sur le nom d’un métier ou sur son adresse pour ouvrir sa fiche sur Infos Métiers (Le Forem). Sur papier, tape l’adresse dans ton navigateur ou scanne le QR code.</p>
+  <table><thead><tr><th>%</th><th>Métier</th><th>Domaine</th></tr></thead><tbody>${top.map(([s,m])=>`<tr><td>${F.pos?Math.round(s/F.pos*100)+' %':''}</td><td>${m.u?`<a href="${FURL(e0(m.u))}"><b>${e0(m.l)}</b></a>`:`<b>${e0(m.l)}</b>`}${m.p?' · en pénurie':''}${m.u?`<br><a class="purl" href="${FURL(e0(m.u))}">${FURL(e0(m.u))}</a>`:''}</td><td>${e0(DATA.D[m.dm])}</td></tr>`).join('')}</tbody></table>
   <p class="plink"><b>Lien de la recherche :</b> ${e0(L)}</p><p class="pfoot">Source : Le Forem, Infos Métiers. Vérifie toujours la fiche complète du métier.</p>`;
   await drawQR(document.getElementById('pqr'),L,150);
   setTimeout(()=>{try{window.print()}catch(x){msg.textContent='L’impression n’est pas possible ici. Utilise le lien ou le QR code.'}},300);
